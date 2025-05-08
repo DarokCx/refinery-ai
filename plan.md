@@ -1,10 +1,10 @@
 # Refinery.AI Project Plan
 
 ## Project Goal
-Build a simple, professional, deployable AI Text Assistant using **Next.js**, **Node.js**, **MongoDB**, and **OpenAI API**. Target: Show Fullstack + React experience for job applications.
+Build a simple, professional, deployable AI Text Assistant using **Next.js (App Router)**, **Node.js**, **MongoDB**, and **OpenAI API**. Target: Show Fullstack + React experience for job applications.
 
 ## Tech Stack
-- Frontend: Next.js (React)
+- Frontend: Next.js (React, App Router)
 - Backend: Next.js API routes (or small Node.js server if needed)
 - Authentication: NextAuth.js
 - Database: MongoDB Atlas
@@ -15,11 +15,11 @@ Build a simple, professional, deployable AI Text Assistant using **Next.js**, **
 ## Pages and Features
 
 ### Pages
-- `/` — Landing Page (marketing)
-- `/login` — Sign In / Sign Up
-- `/app` — Main app (textarea + rewrite buttons)
-- `/pricing` — Pricing plans (Free vs Pro)
-- `/account` — Profile, billing info
+- `/` — Landing Page (marketing) → `/src/app/page.tsx`
+- `/login` — Sign In / Sign Up → `/src/app/login/page.tsx`
+- `/app` — Main app (textarea + rewrite buttons) → `/src/app/app/page.tsx`
+- `/pricing` — Pricing plans → `/src/app/pricing/page.tsx`
+- `/account` — Profile, billing info → `/src/app/account/page.tsx`
 
 ### Core Features (MVP v1)
 - User authentication (Sign up / Login / Logout)
@@ -38,24 +38,25 @@ Build a simple, professional, deployable AI Text Assistant using **Next.js**, **
 
 ## Suggested Project Structure
 ```
-/pages
-  /index.tsx       (Landing page)
-  /login.tsx       (Login page)
-  /app.tsx         (Main app)
-  /pricing.tsx     (Pricing page)
-  /account.tsx     (User profile)
-/api
-  /rewrite.ts      (API route to handle OpenAI calls)
-  /auth/[...nextauth].ts (Auth config)
-/components
-  /Navbar.tsx
-  /Footer.tsx
-  /TextForm.tsx
-/lib
-  /mongodb.ts       (MongoDB connection helper)
-  /openai.ts        (OpenAI API helper)
-/styles
+/src
+  /app
+    /page.tsx           (Landing page)
+    /login/page.tsx      (Login page)
+    /app/page.tsx        (Main app page)
+    /pricing/page.tsx    (Pricing page)
+    /account/page.tsx    (Account page)
+    /api
+      /rewrite/route.ts  (API route for rewriting)
+      /auth/[...nextauth]/route.ts (Auth config)
+  /components
+    Navbar.tsx
+    Footer.tsx
+    TextForm.tsx
+  /lib
+    mongodb.ts           (MongoDB connection helper)
+    openai.ts            (OpenAI API helper)
 /public
+/styles
 ```
 
 ## Milestone Plan
@@ -91,7 +92,7 @@ Build a simple, professional, deployable AI Text Assistant using **Next.js**, **
 
 # Final Objective
 Live deployable AI writing assistant showcasing:
-- Fullstack Next.js skills
+- Fullstack Next.js (App Router) skills
 - Authentication & payments integration
 - API and database integration
 - Real-world SaaS experience
